@@ -6,9 +6,10 @@ import java.net.Socket;
 
 public class Tiedonsiirto {
 
-	DataInputStream in;
-	DataOutputStream out;
-	Socket s;
+	private DataInputStream in;
+	private DataOutputStream out;
+	private Socket s;
+	private volatile boolean käytössä = false;
 	
 	public Tiedonsiirto(){
 		Socket s = null;
@@ -26,8 +27,33 @@ public class Tiedonsiirto {
 			e.printStackTrace();
 		}
 		
+		
 	
 		
+	}
+	
+	public boolean lähetäTietoa(int x) {
+			
+			
+			try {
+				out.writeInt(x);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("Tietoalähti" + System.nanoTime());
+			return false;
+			}
+		
+		
+	public void lopetaOhjelma(){
+		try {
+			out.writeInt(100);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Tietoalähti" + System.nanoTime());
 	}
 	
 	public DataOutputStream palautaYhteys(){
