@@ -18,7 +18,8 @@ public class RoboLiikutus {
 			//Moottorit
 			EV3LargeRegulatedMotor ma = new EV3LargeRegulatedMotor(MotorPort.A);
 			EV3LargeRegulatedMotor mb = new EV3LargeRegulatedMotor(MotorPort.B);
-			EV3MediumRegulatedMotor mc = new EV3MediumRegulatedMotor(MotorPort.C);
+			EV3LargeRegulatedMotor mc = new EV3LargeRegulatedMotor(MotorPort.C);
+			//EV3MediumRegulatedMotor mc = new EV3MediumRegulatedMotor(MotorPort.C);
 			EV3LargeRegulatedMotor md = new EV3LargeRegulatedMotor(MotorPort.D);
 			//mb.setSpeed(speed);
 			//ma.setSpeed(speed);
@@ -34,24 +35,24 @@ public class RoboLiikutus {
 			int i = 0;
 			Renkaat renkaat = new Renkaat(ma, mb);
 			Kurki kurki = new Kurki(mc);
-			Lyöntikäsi käsi = new Lyöntikäsi(mc);
-			renkaat.setNopeus(100);
-			
+			Lyöntikäsi käsi = new Lyöntikäsi(md);
+			renkaat.setNopeus(300);
+			kurki.setNopeus(25);
 			while(käynnissä){
 				i = in.readInt();
-				if(i == 3){
+				if(i == 0){
 					renkaat.liikuVasemmalle();
 					//Delay.msDelay(500);
 					
 				}
-				if(i == 2){
+				if(i == 1){
 					renkaat.liikuOikealle();
 					//Delay.msDelay(500);	
 				}
-				if(i == 0){
+				if(i == 2){
 					kurki.käännäOikealle();
 				}
-				if(i == 1){
+				if(i == 3){
 					kurki.käännäVasemmalle();
 				}
 				if(i == 4){					
@@ -70,6 +71,7 @@ public class RoboLiikutus {
 				if(i == 100){
 					käynnissä = false;
 				}
+				i=-2;
 				}
 			
 			}

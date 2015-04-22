@@ -41,7 +41,7 @@ public class Tiedonsiirto {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println("Tietoalähti" + System.nanoTime());
+			//System.out.println("Tietoalähti" + System.nanoTime());
 			return false;
 			}
 		
@@ -53,7 +53,7 @@ public class Tiedonsiirto {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Tietoalähti" + System.nanoTime());
+		//System.out.println("Tietoalähti" + System.nanoTime());
 	}
 	
 	public DataOutputStream palautaYhteys(){

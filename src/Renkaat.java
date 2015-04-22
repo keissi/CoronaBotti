@@ -9,6 +9,8 @@ public class Renkaat {
 	public Renkaat(RegulatedMotor vasen, RegulatedMotor oikea) {
 		this.vasen = vasen;
 		this.oikea = oikea;
+		vasen.setAcceleration(1000);
+		oikea.setAcceleration(1000);
 		vasen.synchronizeWith(new RegulatedMotor[] {oikea});
 	}
 
@@ -20,6 +22,7 @@ public class Renkaat {
 	public void liikuVasemmalle() {
 		vasen.backward();
 		oikea.forward();
+		
 	}
 
 	public void liikuOikealle() {

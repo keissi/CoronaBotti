@@ -10,10 +10,10 @@ public class Lyöntikäsi {
 
 	public Lyöntikäsi(RegulatedMotor käsi) {
 		this.käsi = käsi;
-		int x=200;
+		int x=450;
 		for (int i = 0; i < nopeus.length ; i++){
 			nopeus[i] = x;
-			x+=700;
+			x+=x;
 		}
 		
 	}
@@ -21,10 +21,11 @@ public class Lyöntikäsi {
 	
 
 	public void vaihdaNopeus() {
-		if(valinta < nopeus.length){
+		if(valinta < (nopeus.length-1)){
 			valinta++;
 		}
 		else valinta=0;
+		System.out.println("Speed: " + nopeus[valinta]);
 	}
 
 	public void oletusasentoon() {

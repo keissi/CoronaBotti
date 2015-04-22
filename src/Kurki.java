@@ -1,12 +1,18 @@
 
 
+import lejos.hardware.motor.*;
 import lejos.robotics.RegulatedMotor;
 
 public class Kurki {
-	RegulatedMotor kurki;
+	BaseRegulatedMotor kurki;
+	
 
-	public Kurki(RegulatedMotor kurki) {
+
+	public Kurki(BaseRegulatedMotor kurki) {
 		this.kurki = kurki;
+		
+		
+	
 	}
 
 	public void setNopeus(int nopeus) {
@@ -15,7 +21,7 @@ public class Kurki {
 
 	public void k‰‰nn‰Vasemmalle() {
 		kurki.backward();
-//		kurki.rotate(-3);
+		//kurki.rotate(360);
 	}
 
 	public void k‰‰nn‰Oikealle() {
@@ -25,9 +31,13 @@ public class Kurki {
 
 	public void seis() {
 		kurki.stop();
+		kurki.resetTachoCount();
 	}
 
 	public void oletusasentoon() {
 		kurki.rotateTo(0);
+	}
+	public void kurkiAsento(){
+		System.out.println(kurki.getTachoCount());
 	}
 }

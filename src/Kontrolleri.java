@@ -6,6 +6,7 @@ public class Kontrolleri {
 	LiikutusTesti liikutus;
 	CoronaUI ui; 
 	XboxController xc;
+	boolean ohjainKäytössä = false;
 	
 	public Kontrolleri(){
 		this.liikutus = new LiikutusTesti();
@@ -17,8 +18,10 @@ public class Kontrolleri {
 	
 
 	public void käytäOhjainta() {
+		if(!ohjainKäytössä){
 		xc = liikutus.alustaOhjain();
-		
+		ohjainKäytössä = true;
+		}
 	}
 
 	public void lopeta() {

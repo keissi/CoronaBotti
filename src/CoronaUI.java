@@ -2,6 +2,9 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.*;
 
@@ -26,9 +29,15 @@ public class CoronaUI extends JFrame implements ActionListener{
 		paneeli.add(otsikko, BorderLayout.NORTH);
 		paneeli.add(k‰yt‰Ohjainta, BorderLayout.CENTER);
 		paneeli.add(lopeta, BorderLayout.SOUTH);
+		this.addWindowListener(new WindowAdapter(){
+			public void windowClosing(WindowEvent e){
+				kontrolleri.lopeta();
+				System.out.println("Lopetin");
+			}
+		});
 		add(paneeli);
 		setVisible(true);
-		setPreferredSize(new Dimension(400, 400));
+		setSize(new Dimension(400, 400));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 	}
@@ -40,10 +49,9 @@ public class CoronaUI extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e){
 		
 		if(e.getSource()==k‰yt‰Ohjainta){
-			if(!ohjainLuotu){
+			
 			kontrolleri.k‰yt‰Ohjainta();
-			ohjainLuotu = true;
-			}
+			
 			}
 		
 		if(e.getSource() == lopeta){
