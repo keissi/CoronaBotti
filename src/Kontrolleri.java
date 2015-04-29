@@ -15,7 +15,11 @@ public class Kontrolleri {
 		ui.asetaKontrolleri(this);
 	}
 	
-	
+	public void vaihdaNopeus(int x){
+		
+		String nopeus = "" + x;
+		ui.päivitäNopeus(nopeus);
+	}
 
 	public void käytäOhjainta() {
 		if(!ohjainKäytössä){

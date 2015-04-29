@@ -44,7 +44,20 @@ public class Tiedonsiirto {
 			//System.out.println("Tietoalähti" + System.nanoTime());
 			return false;
 			}
-		
+	
+	public int vastaanotaTietoa(){
+		int x = 0;
+		try {
+			x =in.readInt();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//System.out.println("Tietoalähti" + System.nanoTime());
+		return x;
+		}
+	
+	
 		
 	public void lopetaOhjelma(){
 		try {

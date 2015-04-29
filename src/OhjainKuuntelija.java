@@ -7,11 +7,12 @@ import ch.aplu.xboxcontroller.XboxControllerAdapter;
 
 public class OhjainKuuntelija extends XboxControllerAdapter{
 	
-	boolean taulukko[] = new boolean[6];
+	boolean taulukko[] = new boolean[8];
 	
 	boolean streamKäytössä = false;
 	boolean tikkuKäytössä = false;
 	Tiedonsiirto tiedonsiirto;
+	
 	
 	
 	
@@ -113,7 +114,43 @@ public class OhjainKuuntelija extends XboxControllerAdapter{
 			
 		
 		}
-}
+		
+		public void start(boolean painettu){
+			if(!streamKäytössä){
+				streamKäytössä = true;
+				taulukko[6] = true;
+			if(painettu){
+				tiedonsiirto.lähetäTietoa(6);
+			}
+			}
+			
+			if(!painettu && taulukko[6]) {
+				streamKäytössä = tiedonsiirto.lähetäTietoa(-1);
+				taulukko[6] = false;
+			}
+			
+		
+		}
+		
+		public void back(boolean painettu){
+			if(!streamKäytössä){
+				streamKäytössä = true;
+				taulukko[7] = true;
+			if(painettu){
+				tiedonsiirto.lähetäTietoa(7);
+			}
+			}
+			
+			if(!painettu && taulukko[7]) {
+				streamKäytössä = tiedonsiirto.lähetäTietoa(-1);
+				taulukko[7] = false;
+			}
+			
+		
+		}
+			
+		}
+
 //	public void leftThumbDirection(double arg0) {
 //		if (arg0 > 240 && arg0 < 280 && tikkuKäytössä){
 //			try {

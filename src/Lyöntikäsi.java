@@ -1,5 +1,7 @@
 
 
+import java.awt.Toolkit;
+
 import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
 
@@ -7,13 +9,16 @@ public class Lyöntikäsi {
 	RegulatedMotor käsi;
 	int nopeus[] = new int[2];
 	int valinta = 0;
-
+	Toolkit toolkit;
+	boolean lyön = false;
+	
+	
 	public Lyöntikäsi(RegulatedMotor käsi) {
 		this.käsi = käsi;
-		int x=450;
+		int x=300;
 		for (int i = 0; i < nopeus.length ; i++){
 			nopeus[i] = x;
-			x+=x;
+			x+=600;
 		}
 		
 	}
@@ -36,9 +41,11 @@ public class Lyöntikäsi {
 	}
 
 	public void lyö() {
+		lyön = true;
 		käsi.setSpeed(palautaNopeus());
 		käsi.rotate(120);
 		 oletusasentoon();
+		 lyön = false;
 		
 	}
 	
@@ -46,4 +53,10 @@ public class Lyöntikäsi {
 		return nopeus[valinta];
 	}
 
+	public void seis(){
+		while(lyön){
+			
+		}
+		käsi.stop();
+	}
 }

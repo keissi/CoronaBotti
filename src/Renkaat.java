@@ -36,5 +36,17 @@ public class Renkaat {
 		oikea.stop();
 		vasen.endSynchronization();
 	}
+	
+	public int oikeaTachoCount(){
+		return oikea.getTachoCount();
+	}
+	
+	public String tachoLaskuri(){
+		String tacho;
+		tacho = "Vasen: " + vasen.getTachoCount()
+				+ "\n" + "Oikea:" + oikea.getTachoCount();
+		return tacho;
+		
+	}
 
 }

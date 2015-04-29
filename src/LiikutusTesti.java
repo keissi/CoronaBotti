@@ -1,3 +1,5 @@
+import java.io.DataInputStream;
+
 import javax.swing.JOptionPane;
 
 import ch.aplu.xboxcontroller.XboxController;
@@ -22,7 +24,8 @@ public class LiikutusTesti {
 	return xc;
 	
 	}
-		  
+	
+	
 	public void lopeta(){
 		xc.release();
 		siirto.lopetaOhjelma();
